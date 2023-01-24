@@ -13,7 +13,7 @@ public class CharacterController : ControllerBase {
     public CharacterController(ICharacterService characterService) {
         _characterService = characterService;
     }
-    
+
     [HttpGet("GetAll")]
     public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> Get() {
         int userId = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)!.Value);
@@ -49,5 +49,11 @@ public class CharacterController : ControllerBase {
         }
 
         return Ok(response);
+    }
+
+    [HttpPost("Skill")]
+    public async Task<ActionResult<ServiceResponse<GetCharacterDto>>> AddCharacterSkill(
+        AddCharacterSkillDto newCharacterSkill) {
+        return Ok(await _characterService.AddCharacterSkill(newCharacterSkill));
     }
 }
