@@ -36,7 +36,7 @@ namespace dotnet_rpg.WPF {
                             s.GetRequiredService<NavigationStore>(),
                             () => new LoginVm(
                                 s.GetRequiredService<AuthentificationStore>(), s.GetRequiredService<NavigationService<RegisterVm>>(),
-                                s.GetRequiredService<NavigationService<HomeVm>>(), s.GetRequiredService<NavigationService<PasswordResetVm>>()
+                                s.GetRequiredService<NavigationService<HomeVm>>()
                             )
                         )
                     );
@@ -45,13 +45,6 @@ namespace dotnet_rpg.WPF {
                         s => new NavigationService<HomeVm>(
                             s.GetRequiredService<NavigationStore>(),
                             () => HomeVm.LoadVm(s.GetRequiredService<AuthentificationStore>(), s.GetRequiredService<NavigationService<LoginVm>>())
-                        )
-                    );
-
-                    services.AddSingleton(
-                        s => new NavigationService<PasswordResetVm>(
-                            s.GetRequiredService<NavigationStore>(),
-                            () => new PasswordResetVm(s.GetRequiredService<AuthentificationStore>(), s.GetRequiredService<NavigationService<LoginVm>>())
                         )
                     );
 

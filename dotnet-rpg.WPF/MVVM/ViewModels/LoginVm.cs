@@ -30,17 +30,14 @@ public class LoginVm : BaseVm {
 
     public ICommand SubmitCommand { get; }
     public ICommand NavigateRegisterCommand { get; }
-    public ICommand NavigatePasswordResetCommand { get; }
 
     public LoginVm(
-        AuthentificationStore authentificationStore, INavigationService registerNavigationService, INavigationService homeNavigationService,
-        INavigationService passwordResetNavigationService
+        AuthentificationStore authentificationStore, INavigationService registerNavigationService, INavigationService homeNavigationService
     ) {
         _username = "Joueur1";
         _password = "123456";
 
         SubmitCommand = new LoginCommand(this, authentificationStore, homeNavigationService);
         NavigateRegisterCommand = new NavigateCommand(registerNavigationService);
-        NavigatePasswordResetCommand = new NavigateCommand(passwordResetNavigationService);
     }
 }

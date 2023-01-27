@@ -19,9 +19,6 @@
                 <DataTemplate DataType="{x:Type vms:HomeVm}">
                     <local:HomeView/>
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type vms:PasswordResetVm}">
-                    <local:PasswordResetView/>
-                </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
     </ScrollViewer>
